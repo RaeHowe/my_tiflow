@@ -134,6 +134,7 @@ type Server struct {
 	clusterID atomic.Uint64
 }
 
+// 在dm架构里面，包括了dm-master, dm-worker和dm-ctl三个组件，每个组件都单独启动一个服务
 // NewServer creates a new Server.
 func NewServer(cfg *Config) *Server {
 	logger := log.L()

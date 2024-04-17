@@ -42,10 +42,10 @@ func Run() {
 	cmd.SetOut(os.Stdout)
 	cmd.SetErr(os.Stderr)
 
-	cmd.AddCommand(version.NewCmdVersion())
-	cmd.AddCommand(master.NewCmdMaster())
-	cmd.AddCommand(executor.NewCmdExecutor())
-	cmd.AddCommand(cli.NewCmdCli())
+	cmd.AddCommand(version.NewCmdVersion())   //打印版本信息
+	cmd.AddCommand(master.NewCmdMaster())     //启动dm-master
+	cmd.AddCommand(executor.NewCmdExecutor()) //启动dm-worker
+	cmd.AddCommand(cli.NewCmdCli())           //启动dm-cli
 
 	if err := cmd.Execute(); err != nil {
 		cmd.PrintErrln(err)
